@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var windowResized;
 
+	// Init the main slider when its height is calculated
 	function initMainSlider() {
 		var navigationHeight = $('.navigation-slider').outerHeight();
 		var screenHeight = $(window).height();
@@ -23,7 +24,7 @@ $(document).ready(function(){
 			});
 	}
 
-	// On browser resize
+	// Re init main slider on browser resize
 	$(window).on('resize', function() {
 		clearTimeout(windowResized);
 		
@@ -32,7 +33,7 @@ $(document).ready(function(){
 		}, 250);
 	});
 
-	// Init the main slider when its height is calculated
+	// Init the main slider after the navigation slider has initialized
 	$('.navigation-slider').on('init', function(slick) {
 		initMainSlider();
 	} );
