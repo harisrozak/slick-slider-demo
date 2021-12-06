@@ -35,6 +35,7 @@ $(document).ready(function(){
 
 	// Init the main slider after the navigation slider has initialized
 	$('.navigation-slider').on('init', function(slick) {
+		$('.navigation-slider .slick-slide').first().addClass('slick-current-slide');
 		initMainSlider();
 	} );
 
@@ -51,9 +52,10 @@ $(document).ready(function(){
 		$('.main-slider').slick('slickGoTo', selectedIndex);
 	} );
 
-	$('.navigation-slider').slick({
-		slidesToShow: 5,
-		slidesToScroll: 5,
+	// Initialize navigation slider
+	$('.navigation-slider').not('.slick-initialized').slick({
+		slidesToShow: 6,
+		slidesToScroll: 6,
 		dots: false,
 		arrows: true,
 		centerMode: false,
